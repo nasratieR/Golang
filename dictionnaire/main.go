@@ -10,9 +10,9 @@ func main() {
 
 dictionnaire := make(map[string]string)
 
-AjouterMot(dictionnaire, "python", "un langage d eprogrammation leger")
-AjouterMot(dictionnaire, "canvas", "un logiciel de creation graphique")
-AjouterMot(dictionnaire, "go", "un langage de programmation")
+Add(dictionnaire, "python", "un langage d eprogrammation leger")
+Add(dictionnaire, "canvas", "un logiciel de creation graphique")
+Add(dictionnaire, "go", "un langage de programmation")
 
 
 }
