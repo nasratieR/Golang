@@ -2,51 +2,27 @@ package main
 
 import (
 	"fmt"
-	"sort"
+	"dictionnaire/dictionary"
 )
 
-type Dictionnaire map[string]string
-
-func (d Dictionnaire) Add(word, definition string) {
-	d[word] = definition
-}
-
-func (d Dictionnaire) Get(word string) string {
-	return d[word]
-}
-
-func (d Dictionnaire) Remove(word string) {
-	delete(d, word)
-}
-
-func (d Dictionnaire) List() []string {
-	var result []string
-	for word, definition := range d {
-		result = append(result, fmt.Sprintf("%s: %s", word, definition))
-	}
-
-	sort.Strings(result)
-	return result
-}
-
 func main() {
-	dictionnaire := make(Dictionnaire)
+	dict := dictionary.Dictionnaire{}
 
-	dictionnaire.Add("python", "un lan gage de programmation leger")
-	dictionnaire.Add("canvas", "un logiciel de crétion graphique")
-	dictionnaire.Add("go", "un langage de programmation")
+	dict.Add("python", "un langage de programmation léger")
+	dict.Add("canvas", "un logiciel de création graphique")
+	dict.Add("go", "un langage de programmation")
 
-	wordToLookup := "go"
-	definition := dictionnaire.Get(wordToLookup)
-	fmt.Printf("Définition de %s: %s\n", wordToLookup, definition)
+	motC := "go"
+	definition := dict.Get(motC)
+	fmt.Printf("Définition de %s: %s\n", motC, definition)
 
-	wordToRemove := "canvas"
-	fmt.Printf("suppression %s du dictionnnaire.\n", wordToRemove)
-	dictionnaire.Remove(wordToRemove)
+	motS := "canvas"
+	fmt.Printf("Suppression de %s du dictionnaire.\n", motS)
+	dict.Remove(motS)
 
-	fmt.Println("liste triée des mots et de leurs définitions")
-	wordList := dictionnaire.List()
-	for _, entry := range wordList {
+	fmt.Println("Liste des mots et de leurs définitions :")
+	motL := dict.List()
+	for _, entry := range motL {
 		fmt.Println(entry)
 	}
 }
